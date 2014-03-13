@@ -22,6 +22,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
+                ->scalarNode("test_data_directory")->end()
                 ->arrayNode('objects')
                     ->useAttributeAsKey('name')
                     ->prototype('array')

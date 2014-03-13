@@ -4,9 +4,13 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
+    <parameters>
+        <parameter key="malwarebytes_testdata.importer.class">Malwarebytes\TestDataBundle\Importer\Importer</parameter>
+    </parameters>
+
     <services>
-        <service id="malwarebytes.testdata" class="Malwarebytes\TestDataBundle\Importer\Importer">
-            <tag name="kernel.event_listener" event="malwarebytes.test.importdataevent" method="onImportEvent" />
+        <service id="malwarebytes_testdata.importer" class="%malwarebytes_testdata.importer.class%">
+            <tag name="kernel.event_listener" event="malwarebytes_test.events.import" method="onImportEvent" />
         </service>
     </services>
 

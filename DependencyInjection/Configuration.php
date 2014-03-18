@@ -32,10 +32,18 @@ class Configuration implements ConfigurationInterface
                             ->values(array('csv','xml'))
                         ->end()
                         ->scalarNode('file')->end()
+                        ->arrayNode('mapping')
+                            ->useAttributeAsKey('name')
+                            ->prototype('array')
+                            ->children()
+                                ->scalarNode('entity')->end()
+                                ->scalarNode('data_field')->end()
+                                ->scalarNode('property')->end()
+                            ->end()
+                        ->end()
+                    ->end()
                 ->end()
             ->end();
-
-        return $treeBuilder;
 
         return $treeBuilder;
     }

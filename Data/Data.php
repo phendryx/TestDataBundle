@@ -2,6 +2,8 @@
 
 namespace Malwarebytes\TestDataBundle\Data;
 
+use Malwarebytes\TestDataBundle\Data\Mapping;
+
 class Data
 {
     /** @var string */
@@ -10,6 +12,8 @@ class Data
     private $type;
     /** @var string */
     private $file;
+    /** @var \Array */
+    private $mappings;
 
     /**
      * @param string $entity
@@ -59,5 +63,24 @@ class Data
         return $this->type;
     }
 
+    /**
+     * @param Mapping[] $mappings
+    */
+    public function setMappings($mappings)
+    {
+        $this->mappings = $mappings;
+    }
 
+    /**
+     * @return Array
+     */
+    public function getMappings()
+    {
+        return $this->mappings;
+    }
+
+    public function addMapping(Mapping $mapping)
+    {
+        return $this->mappings[] = $mapping;
+    }
 }

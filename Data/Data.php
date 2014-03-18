@@ -12,8 +12,10 @@ class Data
     private $type;
     /** @var string */
     private $file;
-    /** @var \Array */
+    /** @var Mapping[] */
     private $mappings;
+    /** @var FieldType[] */
+    private $fieldTypes;
 
     /**
      * @param string $entity
@@ -82,5 +84,26 @@ class Data
     public function addMapping(Mapping $mapping)
     {
         return $this->mappings[] = $mapping;
+    }
+
+    /**
+     * @param \Malwarebytes\TestDataBundle\Data\FieldType[] $fieldTypes
+     */
+    public function setFieldTypes($fieldTypes)
+    {
+        $this->fieldTypes = $fieldTypes;
+    }
+
+    /**
+     * @return \Malwarebytes\TestDataBundle\Data\FieldType[]
+     */
+    public function getFieldTypes()
+    {
+        return $this->fieldTypes;
+    }
+
+    public function addFieldType(FieldType $fieldType)
+    {
+        return $this->fieldTypes[] = $fieldType;
     }
 }

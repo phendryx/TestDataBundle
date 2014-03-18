@@ -56,10 +56,14 @@ class Importer
 
         // Add a converter to the workflow that will convert `beginDate` and `endDate`
         // to \DateTime objects
-        if ($name == "post") {
+        if (count($testData->getFieldTypes()) > 0) {
             $dateTimeConverter = new DateTimeValueConverter('Y-m-d');
-            $workflow
-                ->addValueConverter('date', $dateTimeConverter);
+
+            foreach ($testData->getFieldTypes() as $fieldType) {
+                if ($fieldType->getType() == "datetime") {
+                    $workflow->addValueConverter('date', $dateTimeConverter);
+                }
+            }
         }
 
         // Create the item converter function that will associate an entity with this row of data

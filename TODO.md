@@ -1,0 +1,2 @@
+ - The pull request for doctrine entity association importing (https://github.com/ddeboer/data-import/pull/20) should be checked to see if it has been merged. When it is merged, DataImport/Writer/DoctrineWriter.php should be removed and any istances of use should use data-import's version of this class.
+ - Optional delimeter and seperator properties in config

@@ -13,6 +13,11 @@ use Ddeboer\DataImport\Writer\AbstractWriter;
  * on batch processing.
  *
  * @author David de Boer <david@ddeboer.nl>
+ *
+ * NOTE: This file was downloaded from https://github.com/javierseixas/data-import/blob/master/src/Ddeboer/DataImport/Writer/DoctrineWriter.php
+ * which is part of https://github.com/ddeboer/data-import/pull/20. When this pull request is finally accepted, this file
+ * should be removed and any instances of usage be refactored to use the data-import DoctrineWriter class.
+ *
  */
 class DoctrineWriter extends AbstractWriter
 {

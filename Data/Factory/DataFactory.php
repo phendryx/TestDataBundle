@@ -3,6 +3,7 @@
 namespace Malwarebytes\TestDataBundle\Data\Factory;
 
 use Malwarebytes\TestDataBundle\Data\Data as TestData;
+use Malwarebytes\TestDataBundle\Data\FieldType;
 use Malwarebytes\TestDataBundle\Data\Mapping;
 
 class DataFactory
@@ -28,6 +29,16 @@ class DataFactory
                 $mapping->setProperty($mappingConfig['property']);
 
                 $data->addMapping($mapping);
+            }
+        }
+
+        if (count($config['field_type']) > 0) {
+            foreach ($config['field_type'] as $name => $type) {
+                $fieldType = new FieldType();
+                $fieldType->setName($name);
+                $fieldType->setType($type);
+
+                $data->addFieldType($fieldType);
             }
         }
 

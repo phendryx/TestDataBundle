@@ -41,8 +41,8 @@ class Importer
 
         // Create and configure the reader
         $file = new \SplFileObject($filePath);
-//        $file->setCsvControl(",");
-        $csvReader = new CsvReader($file);
+        $file->setCsvControl(",");
+        $csvReader = new CsvReader($file, ',');
 
         // Tell the reader that the first row in the CSV file contains column headers
         $csvReader->setHeaderRowNumber(0);
